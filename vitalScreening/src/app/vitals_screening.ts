@@ -67,7 +67,11 @@ export class VitalsScreeningComponent implements OnInit {
     }
     
     getAllPatients() {
-    throw new Error('Method not implemented.');
+        this.patientService.getAllPatients().subscribe((res: any)=>{
+            this.patientVitalList = res;
+        },(err: any)=>{
+            console.log(err);
+        });
 }
 }
     
