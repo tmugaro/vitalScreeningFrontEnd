@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, identity } from 'rxjs';
 import { Patient } from '../models/patient';
+import { Height } from '../models/height';
+import { BloodPressure } from '../models/bloodPressure';
+import { BloodGlucose } from '../models/bloodGlucose';
+import { Weight } from '../models/weight';
 
 
 
@@ -55,64 +59,64 @@ constructor(private http : HttpClient) {
     return this.http.post<Patient>(this.addPatientURL,patient);
   }
 
-  addWeight(patient : Patient): Observable<Patient> {
-    return this.http.post<Patient>(this.addWeightURL,patient);
+  addWeight(weight : Weight): Observable<Weight> {
+    return this.http.post<Weight>(this.addWeightURL,weight);
   }
 
-  addHeight(patient : Patient): Observable<Patient> {
-    return this.http.post<Patient>(this.addHeightURL,patient);
+  addHeight(height : Height): Observable<Height> {
+    return this.http.post<Height>(this.addHeightURL,height);
   }
 
-  addBloodGlucose(patient : Patient): Observable<Patient> {
-    return this.http.post<Patient>(this.addBloodGlucoseURL,patient);
+  addBloodGlucose(bloodGlucose : BloodGlucose): Observable<BloodGlucose> {
+    return this.http.post<BloodGlucose>(this.addBloodGlucoseURL,bloodGlucose);
   }
   
-  addBloodPressure(patient : Patient): Observable<Patient> {
-    return this.http.post<Patient>(this.addBloodPressureURL,patient);
+  addBloodPressure(bloodPressure : BloodPressure): Observable<BloodPressure> {
+    return this.http.post<BloodGlucose>(this.addBloodPressureURL,bloodPressure);
   }
 
-  getWeight(patient : Patient): Observable<Patient> {
-    return this.http.post<Patient>(this.getWeightURL,patient);
+  getWeight(weight : Weight): Observable<Weight> {
+    return this.http.get<Weight>(this.getWeightURL);
   }
 
   getPatient(patient : Patient): Observable<Patient> {
-    return this.http.post<Patient>(this.getPatientURL,patient);
+    return this.http.get<Patient>(this.getPatientURL);
   }
 
-  getBloodGlucose(patient : Patient): Observable<Patient> {
-    return this.http.post<Patient>(this.getBloodGlucoseURL,patient);
+  getBloodGlucose(bloodGlucose : BloodGlucose): Observable<BloodGlucose> {
+    return this.http.get<BloodGlucose>(this.getBloodGlucoseURL);
   }
 
-  getBloodPressure(patient : Patient): Observable<Patient> {
-    return this.http.post<Patient>(this.updateBloodPressureUrl,patient);
+  getBloodPressure(bloodPressure : BloodPressure): Observable<BloodPressure> {
+    return this.http.get<BloodPressure>(this.updateBloodPressureUrl);
   }
 
-  updateWeight(patient : Patient): Observable<Patient> {
-    return this.http.post<Patient>(this.updateWeightUrl,patient);
+  updateWeight(weight : Weight): Observable<Weight> {
+    return this.http.put<Weight>(this.updateWeightUrl,weight);
   }
 
-  updateBloodPressure(patient : Patient): Observable<Patient> {
-    return this.http.post<Patient>(this.updateBloodPressureUrl,patient);
+  updateBloodPressure(bloodPressure : BloodPressure): Observable<BloodPressure> {
+    return this.http.put<BloodPressure>(this.updateBloodPressureUrl,bloodPressure);
   }
 
-  updateBloodGlucose(patient : Patient): Observable<Patient> {
-    return this.http.post<Patient>(this.updateBloodGlucoseUrl,patient);
+  updateBloodGlucose(bloodGlucose : BloodGlucose): Observable<BloodGlucose> {
+    return this.http.put<BloodGlucose>(this.updateBloodGlucoseUrl,bloodGlucose);
   }
   
-  deleteeWeight(patient : Patient): Observable<Patient> {
-    return this.http.post<Patient>(this.deleteeWeightUrl,patient);
+  deleteeWeight(weight : Weight): Observable<Weight> {
+    return this.http.delete<Weight>(this.deleteeWeightUrl);
   }
 
-  deleteBloodPressure(patient : Patient): Observable<Patient> {
-    return this.http.post<Patient>(this.deleteBloodPressureUrl,patient);
+  deleteBloodPressure(bloodPressure : BloodPressure): Observable<BloodPressure> {
+    return this.http.delete<BloodPressure>(this.deleteBloodPressureUrl);
   }
 
-  deleteBloodGlucose(patient : Patient): Observable<Patient> {
-    return this.http.post<Patient>(this.deleteBloodGlucoseUrl,patient);
+  deleteBloodGlucose(bloodGlucose : BloodGlucose): Observable<BloodGlucose> {
+    return this.http.delete<BloodGlucose>(this.deleteBloodGlucoseUrl);
   }
 
   deletePatient(patient : Patient): Observable<Patient> {
-    return this.http.post<Patient>(this.deletePatientUrl,patient);
+    return this.http.delete<Patient>(this.deletePatientUrl);
   }
 
  
