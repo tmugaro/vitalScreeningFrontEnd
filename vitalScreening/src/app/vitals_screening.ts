@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms'
+import { Patient } from 'src/app/model/patient';
+import { PatientService } from 'src/app/service/patient.service';
 
 
 
@@ -8,3 +10,68 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms'
   templateUrl: './vitals_screening.component.html',
   styleUrls: ['./app.component.css']
 })
+
+export class VitalsScreeningComponent implements OnInit {
+
+    patientVitalDetail !: FormGroup;
+    patientVitalObj : Patient = new Patient();
+    patientVitalList : Patient[] = [];
+  
+    constructor(private formBuilder : FormBuilder, private patientService : PatientService) { }
+  
+    ngOnInit(): void {
+  
+      this.getAllPatients();
+  
+      this.patientVitalDetail = this.formBuilder.group({
+        id : [''],
+        firstName : [''],
+        lastName : [''],
+        gender : [''],
+        phoneNumber: [''],
+        height : [''],
+        weight: [''],
+        bloodGlucose: [''],
+        systolicBloodPressure: [''],
+        diastolicBloodPressure: [''],
+        emailAddress : [''],
+    });
+
+    
+    addPatientVitals() {
+
+        console.log(this.patientVitalDetail);
+        
+        this.patientVitalObj.id = this.patientVitalDetail.value.id;
+        this.patientVitalObj.firstName = this.patientVitalDetail.value.firstName;
+        this.patientVitalObj.lastName = this.patientVitalDetail.value.lastName;
+        this.patientVitalObj.gender = this.patientVitalDetail.value.gender;
+        this.patientVitalObj.phoneNumber = this.patientVitalDetail.value.phoneNumber;
+        this.patientVitalObj.height = this.patientVitalDetail.value.height;
+        this.patientVitalObj.weight = this.patientVitalDetail.value.weight;
+        this.patientVitalObj.bloodGlucose = this.patientVitalDetail.value.bloodGlucose;
+        this.patientVitalObj.systolicBloodPressure = this.patientVitalDetail.value.systolicBloodPressure;
+        this.patientVitalObj.diastolicBloodPressure = this.patientVitalDetail.value.diastolicBloodPressure;
+        this.patientVitalObj.emailAddress = this.patientVitalDetail.value.emailAddress;
+    
+    
+    
+        this.patientService.addPatient(this.patientVitalObj).subscribe((res: any)=>{
+            console.log(res);
+            this.getAllPatients();
+        },(err: any)=>{
+            console.log(err);
+        });
+    
+      }
+    }
+    
+    getAllPatients() {
+    throw new Error('Method not implemented.');
+}
+}
+    
+function addPatientVitals() {
+    throw new Error('Function not implemented.');
+}
+
