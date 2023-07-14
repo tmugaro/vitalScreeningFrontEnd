@@ -8,7 +8,3 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms'
   templateUrl: './vitals_screening.component.html',
   styleUrls: ['./app.component.css']
 })
-export class VitalsScreeningComponent {
-
-  
-}
