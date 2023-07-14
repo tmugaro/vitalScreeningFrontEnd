@@ -74,8 +74,22 @@ export class VitalsScreeningComponent implements OnInit {
         });
 }
 }
+
+//     editPatients(patient : Patient) {
+//         this.patientVitalDetail.controls['id'].setValue(patient.id);
+//         this.patientVitalDetail.controls['firstName'].setValue(patient.firstName);
+//         this.patientVitalDetail.controls['lastName'].setValue(patient.lastName);
+//         this.patientVitalDetail.controls['gender'].setValue(patient.gender);
+
+//   }
+
     
+
 function addPatientVitals() {
+    throw new Error('Function not implemented.');
+}
+
+function editPatients(patient: any, Patient: any) {
     throw new Error('Function not implemented.');
 }
 
