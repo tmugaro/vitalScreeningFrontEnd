@@ -103,20 +103,24 @@ constructor(private http : HttpClient) {
     return this.http.put<BloodGlucose>(this.updateBloodGlucoseUrl,bloodGlucose);
   }
   
-  deleteeWeight(weight : Weight): Observable<Weight> {
-    return this.http.delete<Weight>(this.deleteeWeightUrl);
+  deleteWeight(weight : Weight): Observable<Weight> {
+    return this.http.delete<Weight>(this.deleteeWeightUrl+'/'+weight.id);
+  }
+
+  deleteHeight(height : Height): Observable<Height> {
+    return this.http.delete<Height>(this.deleteHeightUrl+'/'+height.id);
   }
 
   deleteBloodPressure(bloodPressure : BloodPressure): Observable<BloodPressure> {
-    return this.http.delete<BloodPressure>(this.deleteBloodPressureUrl);
+    return this.http.delete<BloodPressure>(this.deleteBloodPressureUrl+'/'+bloodPressure.id);
   }
 
   deleteBloodGlucose(bloodGlucose : BloodGlucose): Observable<BloodGlucose> {
-    return this.http.delete<BloodGlucose>(this.deleteBloodGlucoseUrl);
+    return this.http.delete<BloodGlucose>(this.deleteBloodGlucoseUrl+'/'+bloodGlucose.id);
   }
 
   deletePatient(patient : Patient): Observable<Patient> {
-    return this.http.delete<Patient>(this.deletePatientUrl);
+    return this.http.delete<Patient>(this.deletePatientUrl+'/'+patient.id);
   }
 
  
